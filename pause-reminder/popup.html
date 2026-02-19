@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pause Reminder</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <h2>Pause Reminder</h2>
+
+    <div class="status">
+      Status: <span id="status">Loading...</span>
+    </div>
+
+    <div class="remaining" id="remaining">—</div>
+
+    <div class="stats">
+      Focus (today): <span id="focus">0</span> min<br />
+      Rest (today): <span id="rest">0</span> min
+    </div>
+
+    <label>
+      Focus Interval (min):
+      <input id="interval" type="number" min="1" />
+    </label>
+
+    <label>
+      Rest Duration (min):
+      <input id="duration" type="number" min="1" />
+    </label>
+
+    <button id="start-focus">Start Focus</button>
+    <button id="pause-now">Pause Now</button>
+    <button id="reset">Reset</button>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

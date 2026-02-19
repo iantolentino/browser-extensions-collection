@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Monochrome (Forced Dark)",
+  "version": "1.2",
+  "description": "Force a black & white dark mode on sites. Text => white, remaining => black. Saves per-site preference.",
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "128": "icons/icon128.png"
+  }
+}

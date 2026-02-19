@@ -1,0 +1,50 @@
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: #111;
+  color: #f1f1f1;
+  width: 360px;
+  padding: 16px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 80px;
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  color: #fff;
+  resize: vertical;
+}
+
+select, button {
+  border-radius: 6px;
+  padding: 6px;
+  border: none;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1e40af;
+}
+
+.hidden {
+  display: none;
+}
+
+#loading {
+  text-align: center;
+  font-style: italic;
+  color: #aaa;
+}

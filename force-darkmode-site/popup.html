@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Monochrome</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="title">Smart Monochrome</div>
+      <div class="sub">Force B/W dark — per site</div>
+    </div>
+
+    <div class="site-row">
+      <div id="siteName" class="site-name">—</div>
+    </div>
+
+    <div class="toggle-row">
+      <label class="label">Monochrome</label>
+      <label class="switch">
+        <input id="darkToggle" type="checkbox" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div id="status" class="status"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

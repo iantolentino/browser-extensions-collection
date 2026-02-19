@@ -1,0 +1,61 @@
+/* overlay + backdrop blur styling */
+
+.pause-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(6px) brightness(0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483647;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  -webkit-backdrop-filter: blur(6px) brightness(0.85);
+}
+
+.pause-overlay.visible {
+  opacity: 1;
+}
+
+.pause-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px 22px;
+  width: 340px;
+  max-width: 92%;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+  text-align: center;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.pause-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.pause-text {
+  font-size: 15px;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.pause-timer {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 14px;
+  color: #111827;
+}
+
+.pause-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pause-btn:hover { background: #1d4ed8; }

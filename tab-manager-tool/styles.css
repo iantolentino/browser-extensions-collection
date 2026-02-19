@@ -1,0 +1,116 @@
+:root {
+  --bg: #fff;
+  --text: #111;
+  --border: #ddd;
+  --muted: #666;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  width: 500px;       /* 🔹 fixed width for popup */
+  height: 500px;      /* 🔹 fixed height, forces scroll if needed */
+  overflow-y: auto;
+}
+
+header {
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+  background: #f8f8f8;
+}
+
+h1 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+button, input[type="text"] {
+  font-size: 12px;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #eee;
+}
+
+main {
+  padding: 10px;
+}
+
+#sitesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* 🔹 2–3 columns */
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-item {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafafa;
+}
+
+.site-main {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.favicon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.site-link {
+  font-size: 13px;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.site-actions {
+  display: flex;
+  align-items: center;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0 4px;
+}
+.remove-btn:hover {
+  color: #000;
+}
+
+#emptyState {
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+}

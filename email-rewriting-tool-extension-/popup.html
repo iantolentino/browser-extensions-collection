@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Email Rewriter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>✉️ AI Email Rewriter</h2>
+
+    <textarea id="emailText" placeholder="Paste your email here..."></textarea>
+
+    <label for="tone">Tone:</label>
+    <select id="tone">
+      <option value="professional">Professional</option>
+      <option value="friendly">Friendly</option>
+      <option value="concise">Concise</option>
+      <option value="apologetic">Apologetic</option>
+    </select>
+
+    <button id="rewriteBtn">✨ Rewrite</button>
+
+    <div id="loading" class="hidden">⏳ Rewriting...</div>
+    <textarea id="result" placeholder="Rewritten email will appear here..." readonly></textarea>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
