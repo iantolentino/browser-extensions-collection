@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    :root {
+      --primary: #4a6fa5;
+      --primary-dark: #3a5985;
+      --success: #4CAF50;
+      --warning: #FF9800;
+      --danger: #F44336;
+      --bg: #f5f6f8;
+      --card: #ffffff;
+      --text: #1c1e21;
+      --text-light: #666;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 300px;
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+    }
+    
+    .container {
+      padding: 16px;
+    }
+    
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .logo {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    
+    .title-section h1 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    
+    .title-section .subtitle {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+    
+    .status-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 500;
+      margin-left: 8px;
+      background: var(--success);
+      color: white;
+    }
+    
+    .status-badge.off {
+      background: var(--danger);
+    }
+    
+    /* Control Card */
+    .control-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .control-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    
+    .toggle-switch {
+      position: relative;
+      width: 52px;
+      height: 28px;
+    }
+    
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .toggle-slider {
+      background-color: var(--primary);
+    }
+    
+    input:checked + .toggle-slider:before {
+      transform: translateX(24px);
+    }
+    
+    /* Brightness Display */
+    .brightness-display {
+      text-align: center;
+      margin: 20px 0;
+    }
+    
+    .brightness-value {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+      transition: all 0.2s;
+    }
+    
+    .brightness-label {
+      font-size: 12px;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Real-time Slider */
+    .slider-container {
+      margin: 24px 0;
+    }
+    
+    .slider-wrapper {
+      position: relative;
+      margin: 8px 0;
+    }
+    
+    .slider-track {
+      position: absolute;
+      width: 100%;
+      height: 6px;
+      background: #e0e0e0;
+      border-radius: 3px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .slider-fill {
+      position: absolute;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      border-radius: 3px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: width 0.1s;
+    }
+    
+    #brightnessSlider {
+      width: 100%;
+      height: 24px;
+      -webkit-appearance: none;
+      background: transparent;
+      position: relative;
+      z-index: 2;
+      outline: none;
+    }
+    
+    #brightnessSlider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid var(--primary);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: all 0.2s;
+    }
+    
+    #brightnessSlider::-webkit-slider-thumb:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    
+    /* Quick Presets */
+    .presets-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 16px 0;
+    }
+    
+    .preset-btn {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #f5f5f5;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    
+    .preset-btn:hover {
+      background: #e0e0e0;
+      transform: translateY(-1px);
+    }
+    
+    .preset-btn.active {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 2px 4px rgba(74, 111, 165, 0.3);
+    }
+    
+    /* Shortcuts */
+    .shortcuts {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+    }
+    
+    .shortcuts h3 {
+      font-size: 14px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    
+    .shortcut-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .shortcut-item:last-child {
+      border-bottom: none;
+    }
+    
+    .shortcut-keys {
+      color: var(--primary);
+      font-family: monospace;
+      font-weight: 500;
+    }
+    
+    /* Live Indicator */
+    .live-indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--success);
+      margin-top: 12px;
+      justify-content: center;
+    }
+    
+    .pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+    
+    /* Feedback */
+    .feedback {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    
+    .feedback.show {
+      opacity: 1;
+    }
+    
+    /* Responsive */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #18191a;
+        --card: #242526;
+        --text: #e4e6eb;
+        --text-light: #b0b3b8;
+      }
+      
+      .preset-btn {
+        background: #3a3b3c;
+        color: var(--text);
+      }
+      
+      .preset-btn:hover {
+        background: #4e4f50;
+      }
+      
+      .slider-track {
+        background: #3a3b3c;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">D</div>
+      <div class="title-section">
+        <h1>Realtime Dimmer <span class="status-badge" id="statusBadge">ON</span></h1>
+        <div class="subtitle">Instant brightness control</div>
+      </div>
+    </div>
+    
+    <div class="control-card">
+      <div class="control-header">
+        <div>
+          <div style="font-weight: 500; margin-bottom: 2px;">Dimming Control</div>
+          <div style="font-size: 12px; color: var(--text-light);" id="stateText">Active on this page</div>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggleSwitch" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      
+      <div class="brightness-display">
+        <div class="brightness-value" id="brightnessValue">80%</div>
+        <div class="brightness-label">Brightness Level</div>
+      </div>
+      
+      <div class="slider-container">
+        <div class="slider-wrapper">
+          <div class="slider-track"></div>
+          <div class="slider-fill" id="sliderFill"></div>
+          <input type="range" min="20" max="100" value="80" step="1" 
+                 class="brightness-slider" id="brightnessSlider">
+        </div>
+      </div>
+      
+      <div class="presets-grid">
+        <button class="preset-btn" data-value="25">Night</button>
+        <button class="preset-btn" data-value="40">Dark</button>
+        <button class="preset-btn active" data-value="60">Dim</button>
+        <button class="preset-btn" data-value="75">Evening</button>
+        <button class="preset-btn" data-value="90">Day</button>
+        <button class="preset-btn" data-value="100">Off</button>
+      </div>
+    </div>
+    
+    <div class="shortcuts">
+      <h3>Real-time Controls</h3>
+      <div class="shortcut-item">
+        <span>Adjust Brightness</span>
+        <span class="shortcut-keys">Ctrl+Shift+↑/↓</span>
+      </div>
+      <div class="shortcut-item">
+        <span>Quick Toggle</span>
+        <span class="shortcut-keys">Ctrl+Shift+Space</span>
+      </div>
+      <div class="shortcut-item">
+        <span>Scroll Adjust</span>
+        <span class="shortcut-keys">Ctrl+Shift+Scroll</span>
+      </div>
+    </div>
+    
+    <div class="live-indicator">
+      <div class="pulse"></div>
+      <span>Live Updates</span>
+    </div>
+  </div>
+  
+  <div class="feedback" id="feedback"></div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+.brightness-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2147483647; /* Maximum z-index */
+  background: black;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: multiply;
+  display: block;
+}
+
+.brightness-overlay.active {
+  pointer-events: auto;
+}
+
+/* Optimize performance */
+.brightness-overlay {
+  will-change: opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* Ensure overlay covers everything */
+html, body {
+  position: relative;
+}
+
+/* Performance optimizations for social media sites */
+#realtime-brightness-overlay {
+  contain: strict;
+  isolation: isolate;
+}
