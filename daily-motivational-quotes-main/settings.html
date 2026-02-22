@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ghibli Quotes — Settings</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div class="settings">
+    <header class="s-header">
+      <img src="icons/icon-48.png" alt="logo" />
+      <h1>Ghibli Quotes — Settings</h1>
+    </header>
+
+    <section class="section">
+      <h3>Theme</h3>
+      <div class="row">
+        <label><input type="radio" name="theme" value="dark" /> Dark</label>
+        <label><input type="radio" name="theme" value="light" /> Light</label>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Background Style</h3>
+      <div class="row">
+        <select id="bgSelect">
+          <option value="ghibli">Ghibli (art)</option>
+          <option value="finance">Finance (minimal)</option>
+          <option value="minimal">Minimal (neutral)</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Notifications</h3>
+      <div class="row">
+        <label><input type="checkbox" id="notifyDaily" /> Enable daily Quote notification</label>
+      </div>
+      <div class="row">
+        <label>Notification hour (local): <input type="number" id="notifyHour" min="0" max="23" value="9" /></label>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Favorites</h3>
+      <div id="favoritesList" class="favorites-list">No favorites yet.</div>
+    </section>
+
+    <footer class="s-foot">
+      <button id="saveBtn" class="btn primary">Save</button>
+      <button id="clearFavs" class="btn ghost">Clear Favorites</button>
+    </footer>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>

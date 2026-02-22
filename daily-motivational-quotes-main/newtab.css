@@ -1,0 +1,23 @@
+:root{
+  --bg-1:#0b1020;--bg-2:#0f1724;--text:#e6eef8;--muted:rgba(255,255,255,0.7);
+  --accent:linear-gradient(135deg,#7ef0d3,#7bd1ff);
+} 
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,var(--bg-1),var(--bg-2));color:var(--text)}
+.nt-container{display:flex;flex-direction:column;min-height:100vh}
+.nt-topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;z-index:5}
+.nt-left{display:flex;align-items:center;gap:12px}
+.nt-logo{width:40px;height:40px;border-radius:8px}
+.nt-title{font-size:18px;font-weight:700}
+.nt-right{display:flex;gap:8px;align-items:center}
+.nt-btn{padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);cursor:pointer}
+.nt-main{flex:1;display:flex;align-items:center;justify-content:center;position:relative;padding:24px}
+.nt-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(4px) brightness(.6);z-index:0}
+.nt-quote-wrap{position:relative;z-index:2;max-width:980px;text-align:center;padding:36px;border-radius:14px;background:rgba(255,255,255,0.03);backdrop-filter: blur(2px)}
+.nt-quote{font-size:28px;font-weight:800;line-height:1.2;margin-bottom:18px}
+.nt-author{font-size:14px;color:var(--muted);margin-bottom:18px}
+.nt-actions{display:flex;gap:8px;justify-content:center}
+.nt-footer{text-align:center;padding:18px;color:var(--muted)}
+.favorited{background:linear-gradient(90deg,#ff9aa2,#ffd97a);color:#041225}
+@media (max-width:720px){.nt-quote{font-size:20px;padding:18px}}
+

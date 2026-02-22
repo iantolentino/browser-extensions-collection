@@ -1,0 +1,22 @@
+:root{
+  --bg: linear-gradient(180deg,#0b1020,#0f1724);
+  --card: rgba(255,255,255,0.03);
+  --muted: rgba(255,255,255,0.7);
+  --accent: linear-gradient(135deg,#7ef0d3,#7bd1ff);
+  --text: #e6eef8;
+}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:transparent;color:var(--text);width:360px}
+.popup{padding:12px;display:flex;flex-direction:column;gap:10px;min-height:220px}
+.popup-header{display:flex;align-items:center;justify-content:space-between}
+.logo img{width:40px;height:40px;border-radius:8px}
+.icon-btn{background:transparent;border:none;color:var(--text);font-size:16px;cursor:pointer;padding:6px;border-radius:8px}
+.quote-area{position:relative;padding:14px;border-radius:12px;background:var(--card);min-height:120px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.bg-wrap{position:absolute;inset:0;border-radius:12px;background-size:cover;background-position:center;opacity:0.08;filter:blur(2px)}
+.quote{position:relative;font-size:15px;margin:0;padding:0;line-height:1.35;font-weight:600}
+.author{position:relative;margin-top:8px;font-size:12px;color:var(--muted)}
+.popup-actions{display:flex;gap:8px;align-items:center;justify-content:space-between}
+.btn{padding:8px 12px;border-radius:10px;border:1px solid transparent;background:var(--card);color:var(--text);cursor:pointer;font-weight:700}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04)}
+.btn.primary{background:var(--accent);color:#041225}
+.btn:active{transform:translateY(1px)}
+.favorited{background:linear-gradient(90deg,#ff9aa2,#ffd97a);color:#041225;box-shadow:0 8px 18px rgba(0,0,0,0.25)}

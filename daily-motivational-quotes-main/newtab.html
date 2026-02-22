@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ghibli — New Tab</title>
+  <link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+  <div class="nt-container">
+    <nav class="nt-topbar">
+      <div class="nt-left">
+        <img src="icons/icon-48.png" alt="logo" class="nt-logo">
+        <h1 class="nt-title">Ghibli Quotes</h1>
+      </div>
+      <div class="nt-right">
+        <button id="openSettingsNT" class="nt-btn ghost"><i class="fa-solid fa-gear"></i></button>
+        <button id="toggleThemeNT" class="nt-btn ghost"><i class="fa-solid fa-circle-half-stroke"></i></button>
+      </div>
+    </nav>
+
+    <main class="nt-main">
+      <div id="ntBg" class="nt-bg"></div>
+      <article class="nt-quote-wrap">
+        <blockquote id="ntQuote" class="nt-quote"></blockquote>
+        <div id="ntAuthor" class="nt-author"></div>
+        <div class="nt-actions">
+          <button id="ntPrev" class="nt-btn ghost"><i class="fa-solid fa-chevron-left"></i></button>
+          <button id="ntFav" class="nt-btn"><i class="fa-regular fa-heart"></i></button>
+          <button id="ntNext" class="nt-btn ghost"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </article>
+    </main>
+
+    <footer class="nt-footer">
+      <div class="nt-info">Powered by Ghibli Daily Quotes</div>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="newtab.js"></script>
+</body>
+</html>

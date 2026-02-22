@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ghibli Quotes — Popup</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup">
+    <header class="popup-header">
+      <div class="logo">
+        <img src="icons/icon-48.png" alt="logo">
+      </div>
+      <div class="header-right">
+        <button id="openSettings" class="icon-btn" title="Settings"><i class="fa-solid fa-gear"></i></button>
+      </div>
+    </header>
+
+    <main id="quoteArea" class="quote-area">
+      <div id="bgWrap" class="bg-wrap"></div>
+      <blockquote id="quoteText" class="quote">Loading…</blockquote>
+      <div id="quoteAuthor" class="author"></div>
+    </main>
+
+    <footer class="popup-actions">
+      <button id="prevBtn" class="btn ghost"><i class="fa-solid fa-chevron-left"></i></button>
+      <button id="favBtn" class="btn"><i class="fa-regular fa-heart"></i></button>
+      <button id="nextBtn" class="btn ghost"><i class="fa-solid fa-chevron-right"></i></button>
+      <a id="openNewTab" class="btn primary" href="#" role="button"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open</a>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
